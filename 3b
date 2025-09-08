@@ -1,0 +1,31 @@
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a paragraph (type 'END' in a new line to finish):");
+        StringBuilder paragraph = new StringBuilder();
+        while (true) {
+            String line = sc.nextLine();
+            if (line.equals("END")) {
+                break;
+            }
+            paragraph.append(line).append("\n");
+        }
+        String text = paragraph.toString();
+        int spaces = 0, characters = text.length(), lines = 0;
+        for (int i = 0; i < text.length(); i++) {
+            if (text.charAt(i) == ' ') {
+                spaces++;
+            }
+            if (text.charAt(i) == '\n') {
+                lines++;
+            }
+        }
+        String[] words = text.trim().split("\\s+");
+        int wordCount = (text.trim().isEmpty()) ? 0 : words.length;
+        System.out.println("Number of spaces: " + spaces);
+        System.out.println("Number of words: " + wordCount);
+        System.out.println("Number of characters: " + characters);
+        System.out.println("Number of lines: " + (lines + 1));
+    }
+}

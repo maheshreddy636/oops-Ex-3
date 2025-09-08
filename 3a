@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
+
+        char firstChar = input.charAt(0);
+
+        String result = input.charAt(0) 
+                        + input.substring(1).replace(firstChar, '$');
+
+        System.out.println("Output: " + result);
+
+        sc.close();
+    }
+}
